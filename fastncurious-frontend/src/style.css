@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Bigbesty";
+  src: url("./assets/fonts/Bigbesty/Bigbesty.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "AlanSans Regular";
+  src: url("./assets/fonts/AlanSans/AlanSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AlanSans Bold";
+  src: url("./assets/fonts/AlanSans/AlanSans-Bold.ttf") format("truetype");
+}
+
+@theme {
+  --color-purple: #7715a0;
+  --color-orange: #e88e0f;
+  --font-primary--regular: "AlanSans Regular", sans-serif;
+  --font-primary--bold: "AlanSans Bold", sans-serif;
+  --font-secondary: "Bigbesty", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #4b0082, #580099);
+}
+
+.container {
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+}
