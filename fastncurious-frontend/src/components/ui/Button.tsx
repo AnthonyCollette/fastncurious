@@ -3,7 +3,7 @@ import refreshIcon from "../../assets/icons/refresh-arrow.png";
 interface ButtonProps {
   text?: string;
   variant?: string;
-  onClick: () => void;
+  onClick?: () => void;
   type?: "button" | "submit" | "reset" | undefined;
 }
 
