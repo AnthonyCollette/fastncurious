@@ -1,12 +1,7 @@
 const express = require("express");
 const { Server } = require("socket.io");
 const cors = require("cors");
-const {
-  generateLobbyCode,
-  createLobby,
-  joinLobby,
-  disconnectLobby,
-} = require("./lobbies");
+const { createLobby, joinLobby, disconnectLobby } = require("./lobbies");
 const { disconnect } = require("process");
 
 const app = express();

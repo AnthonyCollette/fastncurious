@@ -32,16 +32,16 @@ function joinLobby(socket, io, lobbyCode, playerName, playerAvatar) {
   const lobby = lobbies.get(lobbyCode);
 
   if (!lobby) {
-    socket.emit("error", "Lobby inexistant");
+    socket.emit("errorLobbyNotFound", "Lobby inexistant");
     return;
   }
   if (lobby.players.length >= 8) {
-    socket.emit("error", "Lobby plein");
+    socket.emit("errorLobbyFull", "Lobby plein");
     return;
   }
 
   if (lobby.players.find((p) => p.id === socket.id)) {
-    socket.emit("error", "Vous êtes déjà dans le lobby");
+    socket.emit("errorAlreadyInLobby", "Vous êtes déjà dans le lobby");
     return;
   }
 
