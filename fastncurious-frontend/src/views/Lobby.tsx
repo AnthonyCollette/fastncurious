@@ -70,6 +70,11 @@ const Lobby = () => {
           setLobby(res);
         }
       );
+      socket.on("lobbyClosed", (data: { reason: string }) => {
+        setLobbyError(true);
+        setLobbyErrorMessage(data.reason);
+        setLobbyCode("");
+      });
     }
 
     socket.on(
@@ -89,6 +94,12 @@ const Lobby = () => {
         );
       }
     );
+
+    socket.on("kicked", (data: { lobbyCode: string; reason: string }) => {
+      setLobbyError(true);
+      setLobbyErrorMessage(data.reason);
+      setLobbyCode("");
+    });
 
     return () => {
       socket.emit("leaveLobby");
@@ -169,9 +180,12 @@ const Lobby = () => {
                 return (
                   <PlayerPlate
                     key={player.id}
+                    playerId={player.id}
                     image={player.avatar}
                     name={player.name}
+                    lobbyCode={lobby.lobbyCode}
                     host={lobby.host === player.id}
+                    kick={lobby.host === socket.id && lobby.host !== player.id}
                   />
                 );
               })}
